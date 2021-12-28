@@ -1,6 +1,6 @@
 # Victoria Okosyan
 ## Contacts
-* **Location:** Sevastopol, Russia
+* **Location:** Sevastopol, Crimea, Russia
 * **Phone number:** +7-978-70-99-085
 * **Email:** resemble@rambler.ru
 * **GitHub:** 
