@@ -21,13 +21,6 @@ left: 0px;
 top: 0px;
 display: flex;
 }
-.nav {
-height: 50px;
-left: 59.03%;
-right: 6.25%;
-top: 20px;
-position: absolute;
-}
 html {
 scroll-behavior: smooth; 
 }
@@ -35,15 +28,26 @@ scroll-behavior: smooth;
 display: flex;
 justify-content: flex-end;
 align-items: flex-start;
+gap: 0.5px;
+width: 400px;  
+height: 50px;
+left: 910px;
+top: 5px;
+position: absolute;
 }
 .nav-link {
-padding: 0 20px;
+padding: 0 17px;
 color: #fff;
-font-family: 'Inter', sans-serif;
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 50px;
 text-decoration: none; 
 transition: 0.3s;
 }
 .logo {
+position: absolute;
 width: 50px;
 height: 50px;
 left: 20px;
@@ -62,7 +66,7 @@ filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
 .switch_lng {
 position: absolute;
 height: 50px;
-left: 93.75%;
+left: 86.75%;
 right: 1.39%;
 top: 20px;
 }
@@ -83,9 +87,9 @@ top: 0px;
 #hero {
 position: absolute;
 height: 330px;
-left: 5.56%;
+left: 5%;
 right: 59.72%;
-top: 250px;
+top: 200px;
 }
 .hero-title {
 position: absolute;
@@ -105,7 +109,7 @@ position: absolute;
 height: 120px;
 left: 0%;
 right: 6%;
-top: 130px;
+top: 160px;
 font-family: Inter;
 font-style: normal;
 font-weight: normal;
@@ -119,7 +123,7 @@ width: 220px;
 height: 55px;
 left: 0%;
 right: 56%;
-top: 275px;
+top: 326px;
 background-color: #BDAE82;
 cursor: pointer;
 position: absolute;
@@ -139,7 +143,7 @@ position: absolute;
 width: 1440px;
 height: 482px;
 left: 0px;
-top: 910px;
+top: 892px;
 }
 .section-title {
 position: absolute;
@@ -166,18 +170,18 @@ line-height: 80px;
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
-position: relative;
-width: 1250px;
+width: 1128px;
+position: absolute;
 height: 242px;
 left: 20px;
-right: 20px;
-top: 240px;
+right: 252px;
+top: 257px;
 }
 .item {
 position: absolute;
 width: 280px;
 height: 40px;
-top: 100px;
+top: 83px;
 font-family: Inter;
 font-style: normal;
 font-weight: bold;
@@ -190,7 +194,7 @@ color: #FFFFFF;
 position: absolute;
 width: 280px;
 height: 72px;
-top: 160px;
+top: 148px;
 font-family: Inter;
 font-style: normal;
 font-weight: normal;
@@ -209,13 +213,13 @@ position: absolute;
 width: 1440px;
 height: 1500px;
 left: 0px;
-top: 1392px;
+top: 1370px;
 }
 .title1 {
 position: absolute;
 width: 220px;
 height: 80px;
-left: calc(50% - 220px/2 - 8px);
+left: calc(50% - 220px/2 - 4px);
 top: 0px;
 background-color: black;
 text-align: center;
@@ -229,7 +233,7 @@ align-items: stretch;
 width: 895px;
 height: 55px;
 left: 272px;
-top: 240px;
+top: 260px;
 }
 .btn_port {
 background-color: black;
@@ -244,7 +248,7 @@ font-size: 20px;
 line-height: 40px;
 text-align: center;
 text-decoration: none;
-width: 220px;
+width: 224px;
 height: 55px;
 cursor: pointer;
 }
@@ -264,7 +268,7 @@ font-size: 20px;
 line-height: 40px;
 text-align: center;
 text-decoration: none;
-width: 220px;
+width: 224px;
 height: 55px;
 cursor: pointer;
 }
@@ -275,8 +279,8 @@ color:#FFFFFF;
 position: relative;
 height: 1145px;
 width: 1400px;
-left: 40px;
-top: 355px;
+left: 20px;
+top: 322px;
 gap: 25px;
 display: flex;
 flex-wrap: wrap;
@@ -286,7 +290,7 @@ position: absolute;
 width: 1440px;
 height: 945px;
 left: 0px;
-top: 2892px;
+top: 2872px;
 }
 .video-player {
 position: relative;
@@ -295,8 +299,8 @@ justify-content: center;
 align-items: center;
 width: 1400px;
 height: 705px;
-left: 40px;
-top: 240px;
+left: 20px;
+top: 260px;
 }
 .play_hover {
 position: absolute;
@@ -314,14 +318,14 @@ position: absolute;
 width: 1440px;
 height: 845px;
 left: 0px;
-top: 3837px;
+top: 3817px;
 }
 .price-items {
 position: absolute;
 width: 1400px;
 height: 505px;
-left: 40px;
-top: 140px;
+left: 20px;
+top: 120px;
 display: flex;
 justify-content: space-between;
 gap: 20px;
@@ -388,6 +392,13 @@ left: 25.56%;
 right: 25.56%;
 top: 407px;
 background-color: #BDAE82;
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 40px;
+text-align: center;
+color: #000000;
 cursor: pointer;
 transition-duration: 0.4s;
 }
@@ -407,7 +418,7 @@ position: absolute;
 width: 450px;
 height: 445px;
 left: 970px;
-top: 60px;
+top: 30px;
 }
 .contacts-title {
 position: absolute;
@@ -435,7 +446,7 @@ width: 450px;
 height: 50px;
 left: 0px;
 right: 20px;
-top: 120px;
+top: 150px;
 background: rgba(0, 0, 0, 0.5);
 border: 2px solid #BDAE82;
 box-sizing: border-box;
@@ -447,7 +458,7 @@ width: 450px;
 height: 50px;
 left: 0px;
 right: 20px;
-top: 190px;
+top: 220px;
 background: rgba(0, 0, 0, 0.5);
 border: 2px solid #BDAE82;
 box-sizing: border-box;
@@ -459,7 +470,7 @@ width: 450px;
 height: 100px;
 left: 0px;
 right: 20px;
-top: 260px;
+top: 290px;
 background: rgba(0, 0, 0, 0.5);
 border: 2px solid #BDAE82;
 box-sizing: border-box;
@@ -478,7 +489,7 @@ width: 220px;
 height: 55px;
 left: 0%;
 right: 0%;
-top: 390px;
+top: 420px;
 font-family: Inter;
 font-style: normal;
 font-weight: normal;
@@ -538,7 +549,7 @@ position: absolute;
 width: 211px;
 height: 50px;
 left: 615px;
-top: 35px;
+top: 30px;
 font-family: Inter;
 font-style: normal;
 font-weight: normal;
@@ -551,10 +562,10 @@ text-decoration: none;
 position: absolute;
 width: 188px;
 height: 50px;
-left: 1232px;
-top: 50px;
+left: 1190px;
+top: 42px;
 display: flex;
-gap: 9px;
+gap: 20px;
 list-style-type: none;
 }
 .nav-social {
