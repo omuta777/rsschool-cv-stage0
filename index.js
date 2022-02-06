@@ -45,9 +45,6 @@ function changeImage(event) {
 
 navLinks.forEach((el) => el.addEventListener('click', changeImage));
 navLinks.forEach((el) => el.addEventListener('click', () => {
-  
-  playBtn.classList.add('pause');
-  changeImage();
- 
+   playBtn.classList.add('pause');
 }));
 
