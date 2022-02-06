@@ -1,0 +1,137 @@
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+html {
+scroll-behavior: smooth; 
+}
+body {
+min-width: 320px;
+background-color: #000000;
+font-family: 'Roboto', sans-serif  ;
+font-size: 20px;
+line-height: 2;
+color: #fff;
+}
+.header {
+width: 100%;
+margin: 0 auto;
+}
+.container {
+width: calc(100% - 40px);
+max-width: 1440px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.header-container {
+position: relative;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px 20px;
+}
+.logo {
+width: 50px;
+height: 50px;
+background-image: url('./assets/svg/logo.svg');
+background-size: contain;
+background-repeat: no-repeat; 
+transition: 0.2s;
+filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);  
+}
+.logo:hover {
+  filter: none;  
+}
+.nav-list {
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 50px;
+list-style: none;
+}
+.nav-link {
+padding: 0 20px;
+color: #fff;
+font-size: 20px;
+line-height: 50px;
+transition: 0.2s;
+cursor: pointer;
+}
+.nav-link:hover {
+color: #bdae82;
+}
+.nav-link.active {
+  color: #bdae82;
+} 
+.main {
+background-image: url('./assets/img/forest.jpg');
+background-size: cover;
+min-height: 280px;
+height: calc(100vh - 120px);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.play-btn {
+width: 160px;
+height: 160px;
+background-image: url('./assets/svg/play.svg');
+background-size: contain;
+transition: 0.2s;
+background-color: transparent;
+border: 0;
+cursor: pointer;
+}
+.play-btn:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+}
+.play-btn.pause {
+background-image: url('./assets/svg/pause.svg');
+}
+.footer-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1440px;
+width: calc(100% - 40px);
+font-size: 20px;
+margin: 0 auto;
+padding: 5px 20px;
+}
+.footer-data {
+display: flex;
+align-items: center;
+width: 150px;
+gap: 20px;
+font-size: 20px;
+line-height: 50px;
+color: #FFFFFF;
+} 
+.footer-ref-git {
+font-size: 20px;
+line-height: 50px;
+color: #FFFFFF;
+text-decoration: none; 
+transition: 0.4s;
+}
+.footer-ref-git:hover {
+  color: #bdae82;
+}
+.footer-ref-rss {
+width: 150px;
+height: 50px;
+left: 615px;
+text-decoration: none;
+background-image: url('./assets/svg/rss.svg');
+background-size: contain;
+background-repeat: no-repeat;
+transition: 0.2s;
+}
+.footer-ref-rss:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+      contrast(87%);
+}
