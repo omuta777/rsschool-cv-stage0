@@ -1,7 +1,6 @@
 
 const playBtn = document.querySelector('.play-btn');
 const audio = document.querySelector('audio');
-/*const playLogo = document.querySelector('.logo');*/
 const navLinks = document.querySelectorAll('.nav-link');
 const mainImage = document.querySelector('.main');
 const navLink = document.querySelector('.nav-link');

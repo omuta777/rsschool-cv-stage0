@@ -37,7 +37,7 @@ height: 50px;
 background-image: url('./assets/svg/logo.svg');
 background-size: contain;
 background-repeat: no-repeat; 
-transition: 0.4s;
+transition: 0.2s;
 filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
   contrast(87%);  
 }
@@ -56,7 +56,7 @@ padding: 0 20px;
 color: #fff;
 font-size: 20px;
 line-height: 50px;
-transition: 0.4s;
+transition: 0.2s;
 cursor: pointer;
 }
 .nav-link:hover {
@@ -79,11 +79,10 @@ width: 160px;
 height: 160px;
 background-image: url('./assets/svg/play.svg');
 background-size: contain;
-transition: 0.4s;
+transition: 0.2s;
 background-color: transparent;
 border: 0;
 cursor: pointer;
-transition: 0.4s;
 }
 .play-btn:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -129,7 +128,7 @@ text-decoration: none;
 background-image: url('./assets/svg/rss.svg');
 background-size: contain;
 background-repeat: no-repeat;
-transition: 0.4s;
+transition: 0.2s;
 }
 .footer-ref-rss:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
