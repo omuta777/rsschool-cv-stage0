@@ -1,91 +1,4 @@
-
-const jokesImage = document.querySelector('.jokes-image');
-const jokesBtn = document.querySelector('.jokes-btn');
-const jokesColor = document.querySelector('body');
-
-
-const url = 'https://api.icndb.com/jokes/random';
-const textJoke = document.querySelector('.text-content');
-
-async function getData() {
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(data);
-  showData(data);
-}
-
-function showData(data) {
-  textJoke.textContent = data.value.joke;
-}
-
-jokesBtn.addEventListener('click', () => {
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-    if (langSwitcherRu.classList.contains('active')) {
-    showQuotes();
-  } else {
-    getData();
-  }
-});
-
-/*async function getQuotes() {  
- 
-  const quotes = 'quote.json';
-  const res = await fetch(quotes);
-  const data = await res.json(); 
-  console.log(data);
-  showQuotes(data);
-}*/
-
-
-function showQuotes() {
-  let randomNum = Math.floor(Math.random() * arrQuotes.length);
-  textJoke.textContent = arrQuotes[randomNum].text;
-}
-
-const i18Obj = {
-  'en': {
-    'jokes-button': 'Make me laugh, Chuck!',
-  },
-  'ru': {
-    'jokes-button': 'Заставь меня улыбнуться, Чак!',
- }
-};
-
-const text = document.querySelectorAll('[data-i18]');
-const langSwitcherRu = document.querySelector('.ru');
-const langSwitcherEn = document.querySelector('.en');
-const langSwitcher = document.querySelectorAll('.switch_lng');
-
-
-langSwitcherEn.classList.add('active');
-
-function getTranslate(lang) {
-  text.forEach((element) => {
-    element.textContent = i18Obj[lang][element.dataset.i18]});
-};
-
-langSwitcherRu.addEventListener('click', () => {
-  getTranslate('ru');
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-  showQuotes();
-  langSwitcherRu.classList.add('active');
-  langSwitcherEn.classList.remove('active');
- });
-
-langSwitcherEn.addEventListener('click', () => {
-  getTranslate('en');
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-  getData();
-  langSwitcherEn.classList.add('active');
-  langSwitcherRu.classList.remove('active');
- });
-
-window.addEventListener('load', getData);
- 
-const arrQuotes = [
+[
   {
     "text": "Чак Норрис может сжать пальцы в кулак даже на ноге",
     "author": "Неизвестен"
@@ -242,4 +155,4 @@ const arrQuotes = [
     "text": "Чак Норрис взламывает любой шифр с первой попытки, потому что даже шифр не смеет возразить Чаку",
     "author": "Неизвестен"
   }
-];
+]
