@@ -1,0 +1,130 @@
+html {
+scroll-behavior: smooth; 
+}
+body {
+background-color: #fff;
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+line-height: 2;
+color: #fff;
+background-color: rgb(80, 17, 226);
+}
+.change {
+  background-color: rgb(17, 97, 27);  
+}
+.header {
+max-width: 1440px;
+height: 30px;
+left: 0px;
+top: 0px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+.switch_lng {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+position: absolute;
+width: 70px;
+height: 50px;
+left: 90%;
+top: 20px;
+gap: 8px;
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 50px;
+text-align: center;
+color: #FFFFFF;
+}
+.lang-button {
+cursor: pointer;
+transition: 0.3s;
+}
+.lang-button.active {
+color: #000;
+}
+.main-container {
+display: grid;
+grid-gap: 20px;
+justify-items: center;
+align-items: center;
+left: 50%;
+width: 80vw;
+height: 350px;
+margin: 0 auto;
+margin-top: 150px;
+}
+.jokes-image {
+margin-left: 10px;
+}
+.grow {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+}
+.jokes-btn {
+width: 340px;
+height: 40px;
+display: block;
+font-size: 20px;
+line-height: 2;
+color: #fff;
+transition: 0.2s;
+background-color: blue;
+border-radius: 8px;
+cursor: pointer;
+}
+.jokes-btn:hover {
+background-color: rgb(5, 5, 59);
+color: aqua;
+}
+.text-content {
+text-align: center;
+}
+.footer-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1440px;
+width: calc(100% - 40px);
+font-size: 20px;
+margin: 0 auto;
+margin-top: 140px;
+}
+.footer-data {
+display: flex;
+align-items: center;
+width: 150px;
+gap: 20px;
+font-size: 20px;
+line-height: 50px;
+color: #fff;
+} 
+.footer-ref-git {
+font-size: 20px;
+line-height: 50px;
+color: #fff;
+text-decoration: none; 
+transition: 0.4s;
+}
+.footer-ref-git:hover {
+color: #bdae82;;
+}
+.footer-ref-rss {
+width: 150px;
+height: 50px;
+left: 615px;
+text-decoration: none;
+background-image: url('./assets/svg/rss.svg');
+background-size: contain;
+background-repeat: no-repeat;
+transition: 0.2s;
+}
+.footer-ref-rss:hover {
+filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+  }
