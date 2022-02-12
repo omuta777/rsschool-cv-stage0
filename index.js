@@ -1,3 +1,4 @@
+
 const jokesImage = document.querySelector('.jokes-image');
 const jokesBtn = document.querySelector('.jokes-btn');
 const jokesColor = document.querySelector('body');
