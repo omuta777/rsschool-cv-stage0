@@ -16,6 +16,9 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 }
+.title {
+color: rgba(147, 14, 236);
+}
 .reload-button {
 width: 150px;
 height: 50px;
@@ -25,6 +28,7 @@ font-size: 20px;
 cursor: pointer;
 text-align: center;
 margin-bottom: 50px; 
+border-radius: 12px;
 }
 .playground {
 display: flex;
@@ -74,7 +78,7 @@ background-color: crimson;
 border: 2px solid rgb(39, 5, 11);
 top: 50%;
 left: 50%;
-transform: translate(-50%, -50%);
+transform: translate(-50%, -39%);
 display: flex;
 flex-flow: column;
 justify-content: space-between;
@@ -143,11 +147,12 @@ margin-top: 120px;
 .record {
 width: 150px;
 height: 40px;
-background-color: rgb(146, 18, 140);
+background-color: rgb(22, 190, 72);
 color: #000;
 font-size: 20px;
 cursor: pointer;
-text-align: center;  
+text-align: center;
+border-radius: 12px;  
 }
 .footer-data {
 display: flex;
