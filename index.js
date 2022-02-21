@@ -1,245 +1,149 @@
 
-const jokesImage = document.querySelector('.jokes-image');
-const jokesBtn = document.querySelector('.jokes-btn');
-const jokesColor = document.querySelector('body');
+const cells = document.querySelector('.cells');
+const playCell = document.getElementsByClassName('cell');
+const content = document.querySelector('.content');
+const stepContent = document.querySelector('.step-content');
+const playWindow = document.querySelector('.play-window');
+const playButton = document.querySelector('.play-btn');
+const reloadButton = document.querySelector('.reload-button');
+const tableItem = document.querySelector('.table-item');
+/*const resultButton = document.querySelector('.result-btn');*/
+const resultTable = document.querySelector('.result-table');
+const closeTableButton = document.querySelector('.close-table');
+const recordButton = document.querySelector('.record');
+
+let step = 0;
+let stepCount = 0;
+let result = '';
+let newarr = [];
 
 
-const url = 'https://api.icndb.com/jokes/random';
-const textJoke = document.querySelector('.text-content');
-
-async function getData() {
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(data);
-  showData(data);
+function playAudio() {
+  const audio = new Audio();
+  audio.src = "assets/audio/knopka.mp3";
+  audio.currentTime = 0;
+  audio.play();
 }
-
-function showData(data) {
-  textJoke.textContent = data.value.joke;
-}
-
-jokesBtn.addEventListener('click', () => {
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-    if (langSwitcherRu.classList.contains('active')) {
-    showQuotes();
-  } else {
-    getData();
+  
+cells.addEventListener('click', event => {
+  if (event.target.className = 'cell') {
+    step % 2 === 0 ? event.target.innerHTML = 'x' : event.target.innerHTML = 'o';
+    step++;
+    stepCount++; 
+    gameCheck();
+    playAudio();
+    checkFlag();
   }
+})
+let isFlag = true;
+function gameCheck () {
+  const arr = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+  ]
+for (i = 0; i < arr.length; i++) {
+  if (playCell[arr[i][0]].innerHTML == 'x' && playCell[arr[i][1]].innerHTML == 'x' && playCell[arr[i][2]].innerHTML == 'x') {
+    result = 'Х';
+    isFlag = false;
+    showWinner (result);
+    newarr.push(`winner is X -  ${stepCount} steps`);
+   
+  } else if (playCell[arr[i][0]].innerHTML == 'o' && playCell[arr[i][1]].innerHTML == 'o' && playCell[arr[i][2]].innerHTML == 'o') {
+    result = 'O';
+    isFlag = false;
+    showWinner (result);
+    newarr.push(`winner is O -  ${stepCount} steps`);
+   
+  } 
+} 
+};
+
+function checkFlag () {
+  if (step == 9 && isFlag == true) {
+    noWinner();
+    newarr.push('no winner - 9 steps');
+}
+};
+
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+localStorage.setItem('items', JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
+const ul = document.querySelector('ul')
+
+const liMaker = text => {
+  const li = document.createElement('li')
+  li.textContent = text
+  ul.appendChild(li)
+};
+
+playButton.addEventListener('click', function() {
+  itemsArray.push(newarr);
+  if (itemsArray.length >= 11) {
+    itemsArray.shift();
+  }
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+  liMaker(newarr);
+ 
+ }); 
+
+data.forEach(item => {
+  liMaker(item)
 });
 
-/*async function getQuotes() {  
- 
-  const quotes = 'quote.json';
-  const res = await fetch(quotes);
-  const data = await res.json(); 
-  console.log(data);
-  showQuotes(data);
-}*/
+/*reloadButton.addEventListener('click', function() {
+  localStorage.clear()
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+});*/
 
-
-function showQuotes() {
-  let randomNum = Math.floor(Math.random() * arrQuotes.length);
-  textJoke.textContent = arrQuotes[randomNum].text;
+function playAudioWin() {
+  const audio = new Audio();
+  audio.src = "assets/audio/window.mp3";
+  audio.currentTime = 0;
+  audio.play();
 }
 
-const i18Obj = {
-  'en': {
-    'jokes-button': 'Make me laugh, Chuck!',
-  },
-  'ru': {
-    'jokes-button': 'Заставь меня улыбнуться, Чак!',
- }
+function showWinner (winner) {
+  content.innerHTML = `Winner is ${winner}!`;
+  stepContent.innerHTML = `Number of steps = ${stepCount}`;
+  playWindow.style.display = 'block';
+  playAudioWin();
+ };
+
+function noWinner () {
+  content.innerHTML = 'No winner!!!';
+  stepContent.innerHTML = 'Try again, please.';
+  playWindow.style.display = 'block';
+  playAudioWin();
 };
 
-const text = document.querySelectorAll('[data-i18]');
-const langSwitcherRu = document.querySelector('.ru');
-const langSwitcherEn = document.querySelector('.en');
-const langSwitcher = document.querySelectorAll('.switch_lng');
 
+function showResults() {
+  resultTable.style.display = 'block';
+}
 
-langSwitcherEn.classList.add('active');
-
-function getTranslate(lang) {
-  text.forEach((element) => {
-    element.textContent = i18Obj[lang][element.dataset.i18]});
+function closeWindow () {
+  location.reload();
+  playWindow.style.display = 'none';
 };
 
-langSwitcherRu.addEventListener('click', () => {
-  getTranslate('ru');
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-  showQuotes();
-  langSwitcherRu.classList.add('active');
-  langSwitcherEn.classList.remove('active');
- });
+playButton.addEventListener('click', closeWindow);
+reloadButton.addEventListener('click', closeWindow);
+/*resultButton.addEventListener('click', () => {
+showResults();
+playWindow.style.display = 'none';
+});*/
+closeTableButton.addEventListener('click', closeWindow);
+recordButton.addEventListener('click', showResults);
 
-langSwitcherEn.addEventListener('click', () => {
-  getTranslate('en');
-  jokesImage.classList.toggle('grow');
-  jokesColor.classList.toggle('change');
-  getData();
-  langSwitcherEn.classList.add('active');
-  langSwitcherRu.classList.remove('active');
- });
 
-window.addEventListener('load', getData);
+
+
  
-const arrQuotes = [
-  {
-    "text": "Чак Норрис может сжать пальцы в кулак даже на ноге",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Однажды Чак Норрис съел именинный торт, прежде чем друзья успели сказать, что внутри сидит стриптизерша​",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис засунул пальцы в разетку и убил ток",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис перемалывает кофейные зерна зубами и кипятит воду на внутренней ярости",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис любую посуду делает одноразовой",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Клонирование запретили, поскольку если клонировать Чака Норриса, то появится вероятность, что удар ногой с разворота одного Чака столкнется с ударом ногой с разворота другого. Физики утверждают, что это станет концом Вселенной",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис зарегистрировался ВКонтакте и удалил страницу Павла Дурова",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "При прохождении IQ теста отвечайте на все вопросы «Чак Норрис» – и вы заработаете максимальное количество баллов",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Таксист подвозивший Чака Норриса намазал спасибо на хлеб!",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Основной экспортируемый продукт Чака Норриса — страдания",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис — единственный человек, который обыграл стену в теннис",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Нет никакой теории эволюции Дарвина. Есть список существ, которых Чак Норрис пощадил",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис досчитал до бесконечности. Дважды",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Пульс Чака Норриса измеряется по шкале Рихтера",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Плутон — это на самом деле вращающийся вокруг Солнца отряд британских солдат времён Войны за независимость США, которых Чак отправил в космос ударом в морду ногой с разворота",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "У дома Чака Норриса нет дверей. Он проходит сквозь стены",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис построил Эверест при помощи ведерка и лопатки",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Последняя цифра числа пи — Чак Норрис",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может заставить воду течь под лежачий камень",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может захлопнуть вращающуюся дверь",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может выжать апельсиновый сок из лимона",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чака Норриса исключили из соревнований по родео после того, как он проехал на быке 1346 км, чтобы забрать вещи из химчистки",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис не играет в карманный бильярд, он играет в карманный боулинг",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может убить два камня одной птицей",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может слепить снеговика из дождя",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "У Чака Норриса нет часов, он сам решает, сколько сейчас времени",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Если вы спросите у Чака Норриса: «Который час?», он всегда отвечает: «Две секунды до». После того как вы спросите: «Две секунды до чего?», вы получите по лицу знаменитый удар ногой с разворота",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может ударить циклопа между глаз",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может удалить корзину",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис не пользуется полотенцем, вода сама убегает с его тела",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис принимает снотворное, чтобы моргать”",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может довести до оргазма резиновую женщину",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может разлочить iPhone, не вынимая его из коробки",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "У Чака Норриса две скорости: «Идти» и «Убивать»",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис может заставить плакать лук",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис бросил гранату и убил 50 человек. А потом она взорвалась",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис никогда не спит. Он выжидает",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис разговаривает исключительно матом. Потому что любое слово, произнесенное Чаком, автоматически переходит в разряд матерных",
-    "author": "Неизвестен"
-  },
-  {
-    "text": "Чак Норрис взламывает любой шифр с первой попытки, потому что даже шифр не смеет возразить Чаку",
-    "author": "Неизвестен"
-  }
-];

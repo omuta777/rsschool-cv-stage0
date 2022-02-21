@@ -1,10 +1,12 @@
-!DOCTYPE html>
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random jokes</title>
+    <title>Game</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,17 +14,34 @@
 </head>
 <body>
     <header class = "header">
-        <div class="switch_lng">
-            <span class="en lang-button">en</span>
-            <span>/</span>
-            <span class="ru lang-button">ru</span>
-        </div>
+        <h1 class="title">Tic Tac Toe</h1>
+        <button class="reload-button">Reset</button>
     </header>
     <main>
-        <div class="main-container"> 
-           <img src='./assets/img/chuck.png' alt="Chuck Norris" class="jokes-image"/>
-           <button class="jokes-btn" data-i18="jokes-button">Make me laugh, Chuck!</button>
-           <p class="text-content" data-i18="jokes-text"></p>
+        <div class="playground">
+            <div class="cells">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div> 
+        </div>
+        <div class="play-window">
+            <div class="window">
+                <div class="content">Content</div>
+                <div class="step-content">Content</div>
+                <button class="play-btn">New game</button>
+            </div>
+        </div>
+        <div class="result-table">
+            <ul class="table-item">
+            </ul>
+            <button class="close-table">Close</button>
         </div>
     </main> 
     <footer>
@@ -32,6 +51,7 @@
                 <div class="footer-year">2022</div>
                 <div><a class="footer-ref-git" href="https://github.com/omuta777">github</a></div>
             </div>
+            <button class="record">Record table</button>
             <a class="footer-ref-rss" href="https://rs.school/js"></a>
         </div>
     </footer> 
