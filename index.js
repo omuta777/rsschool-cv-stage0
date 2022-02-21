@@ -1,3 +1,4 @@
+
 const cells = document.querySelector('.cells');
 const playCell = document.getElementsByClassName('cell');
 const content = document.querySelector('.content');
